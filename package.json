@@ -1,0 +1,59 @@
+{
+  "name": "Creator Akira",
+  "version": "1.1.0",
+  "description": "Rest APIs KirBotz",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ramdaniofficial/home-api.git"
+  },
+  "keywords": [
+    "simple",
+    "api",
+    "rest",
+    "api"
+  ],
+  "author": "Ramdani Official",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ramdaniofficial/home-api/issues"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "base-64": "^1.0.0",
+    "base32": "0.0.6",
+    "chalk": "^4.1.0",
+    "cheerio": "^1.0.0-rc.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "fbdl-core": "^1.0.2",
+    "lodash": "^4.17.20",
+    "os": "^0.1.1",
+    "qs": "^6.10.3",
+    "moment-timezone": "^0.5.33",
+    "moment": "^2.29.1",
+    "mongodb": "^3.6.3",
+    "monk": "^7.3.3",
+    "instatouch": "^2.3.14",
+    "jsdom": "^16.5.0",
+    "morgan": "^1.10.0",
+    "needle": "^2.6.0",
+    "node-fetch": "^2.6.1",
+    "request": "^2.88.2",
+    "scrape-yt": "^1.4.8",
+    "ssl-express-www": "^3.0.7",
+    "tiktok-scraper": "^1.4.12",
+    "urlencode": "^1.1.0",
+    "yt-search": "^2.7.6",
+    "ytdl-core": "^4.4.5",
+    "ytpl": "^2.0.5"
+  },
+  
+  "homepage": "https://github.com/Ramdaniofficial/home-api#readme"
+}

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:image" content="https://telegra.ph/file/5f9b68bc3d3d5d36595ae.jpg" /> 
+  <meta property="og:title" content="KirBotz - APIs" /> <meta property="og:description" content="Made By Akira"/> 
+  <link rel="shortcut icon" href="https://telegra.ph/file/5f9b68bc3d3d5d36595ae.jpg" type="image/x-icon" />
+  <title>KirBotz - APIs</title>
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/ruang-admin.min.css" rel="stylesheet">
+  <audio autoplay="autoplay" hidden="hidden" src="https://a.top4top.io/m_2311sn4b30.mp3"></audio>
+  </head>
+  <style>
+  
+.bg-orange {
+  background-color: #c3cf0f;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #ffa426), to(#dda20a));
+  background-image: linear-gradient(180deg, #dd7009 10%, #ee7708 100%);
+  background-size: cover
+}
+
+.border-right-warning {
+  border-right: .25rem solid #ffeb3b !important
+}
+
+.border-top-warning {
+  border-top: .25rem solid #ffeb3b !important
+}
+
+.animated {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #FF0000;
+  -webkit-animation: animatedBackground_c 2s infinite alternate;
+}
+@keyframes animatedBackground_c {
+  0% {-webkit-text-stroke-color: #ff8b00}
+  10% {-webkit-text-stroke-color: #e8ff00}
+  20% {-webkit-text-stroke-color: #5dff00}
+  30% {-webkit-text-stroke-color: #00ff2e}
+  40% {-webkit-text-stroke-color: #00ffb9}
+  50% {-webkit-text-stroke-color: #00b9ff}
+  60% {-webkit-text-stroke-color: #002eff}
+  70% {-webkit-text-stroke-color: #5d00ff}
+  80% {-webkit-text-stroke-color: #e800ff}
+  90% {-webkit-text-stroke-color: #ff008b}
+  100% {-webkit-text-stroke-color: #ff0000}
+}
+
+
+.img-gg {
+  width: 165px;
+  height: 165px; 
+  border: 3px solid #e3eaef
+}
+  
+h7, .h7 {
+  font-size: 0.7rem; 
+}
+  
+.font-gg {
+  font-size: 40px
+}
+
+.rainbow {
+  background: linear-gradient(
+  to right, 
+  #A6CE37, #ECE71C, #0FC6E6, #F95D44, #816271, #9F1958, #081B6A, #59D7EE);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 800px;
+  background-position: center 0%;
+  animation: background-slide 25s infinite linear;
+}
+
+@keyframes background-slide {
+  100% {
+  background-position: 8160px;
+  }
+}
+
+.bg-gray-dark {
+  background: #e3eaef; 
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h11 {
+  font-size: 5rem;
+  margin-bottom: 0.5em;
+}
+
+h21 {
+  margin-top: 1em;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.play-area {
+  background-color: #e3eaef;
+  display: grid;
+  width: 300px;
+  height: 300px;
+  grid-template-columns: auto auto auto;
+}
+
+.block {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  border: 3px solid black;
+  transition: background 0.2s ease-in-out;
+}
+
+.block:hover {
+  cursor: pointer;
+  background: #0ff30f;
+}
+
+.occupied:hover {
+  background: #ff3a3a;
+}
+
+.win {
+  background: #0ff30f;
+}
+
+.win:hover {
+  background: #0ff30f;
+}
+
+#block_0,
+#block_1,
+#block_2 {
+  border-top: none;
+}
+
+#block_0,
+#block_3,
+#block_6 {
+  border-left: none;
+}
+
+#block_6,
+#block_7,
+#block_8 {
+  border-bottom: none;
+}
+
+#block_2,
+#block_5,
+#block_8 {
+  border-right: none;
+}
+
+button1 {
+  outline: none;
+  border: 4px solid green;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: none;
+  transition: all 0.2s ease-in-out;
+}
+
+button1:hover {
+  cursor: pointer;
+  background: green;
+  color: white;
+}
+
+.playerWin {
+  color: blue;
+}
+
+.computerWin {
+  color: red;
+}
+
+.draw {
+  color: orangered;
+}
+
+@media only screen and (max-width: 600px) {
+  h11 {
+    font-size: 3rem;
+    margin-bottom: 0.5em;
+  }
+  h21 {
+    margin-top: 1em;
+    font-size: 1.3rem;
+  }
+}
+
+</style>
+
+<body id="page-top" onload="getvisitor();">
+  <div id="wrapper">
+    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon">
+        	<img src="https://telegra.ph/file/5f9b68bc3d3d5d36595ae.jpg">
+        </div>
+        <div class="sidebar-brand-text mx-3">KirBotz - APIs</div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fire"></i>
+          <span>Creator Akira</span></a>
+      </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        List Features
+      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseIslamic" aria-expanded="true"
+          aria-controls="collapseIslamic">
+          <i class="fas fa-star-and-crescent"></i>
+          <span>Islamic</span>
+        </a>
+        <div id="collapseIslamic" class="collapse" aria-labelledby="headingIslamic" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Fitur Islamic</h6>
+            <a class="collapse-item" href="api/kisahnabi?nabi=muhammad&apikey=ApikeyNya">Kisah Nabi</a>
+            <a class="collapse-item" href="api/niatsholat?yah=isya&apikey=ApikeyNya">Niat Sholat</a>
+            <a class="collapse-item" href="api/asmaulhusna?apikey=ApikeyNya">Asmaul Husna</a>
+            <a class="collapse-item" href="api/doaharian?apikey=ApikeyNya">Doa Harian</a>
+            <a class="collapse-item" href="api/bacaansholat?apikey=ApikeyNya">Bacaan Sholat</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
+          <i class="fas fa-download"></i>
+          <span>Sosmed</span>
+        </a>
+        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Downloader</h6>
+            <a class="collapse-item" href="api/download/ytsearch?query=Monolog-pamungkas&apikey=ApikeyNya">Youtube Search</a>
+            <a class="collapse-item" href="api/download/ytmp4?url=https://youtu.be/b0CCKgVEhlk&apikey=ApikeyNya">YouTube Video</a>
+            <a class="collapse-item" href="api/download/ytmp3?url=https://youtu.be/b0CCKgVEhlk&apikey=ApikeyNya">YouTube Audio</a>
+            <a class="collapse-item" href="api/download/playmp3?query=Monolog-pamungkas&apikey=ApikeyNya">Play Mp3</a>
+            <a class="collapse-item" href="api/download/playmp4?query=Monolog-pamungkas&apikey=ApikeyNya">Play Mp4</a>
+            <a class="collapse-item" href="api/download/tiktok?url=https://vt.tiktok.com/ZSeJ7P56G&apikey=ApikeyNya">Tiktok Download</a>
+            </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnime3" aria-expanded="true"
+          aria-controls="collapseAnime3">
+          <i class="fas fa-mug-hot"></i>
+          <span>Random</span>
+        </a>
+        <div id="collapseAnime3" class="collapse" aria-labelledby="headingAnime" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Random Image</h6>
+            <a class="collapse-item" href="api/random/cogan?apikey=ApikeyNya">Random Cogan</a>
+            <a class="collapse-item" href="api/random/cecan?apikey=ApikeyNya">Random Cecan</a>
+            <a class="collapse-item" href="api/random/islamic?apikey=ApikeyNya">Random Islamic</a>
+            <a class="collapse-item" href="api/random/mountain?apikey=ApikeyNya">Random Mountain</a>
+            <a class="collapse-item" href="api/random/progamming?apikey=ApikeyNya">Random Progamming</a>
+            <a class="collapse-item" href="api/random/technology?apikey=ApikeyNya">Random Technology</a>
+            <a class="collapse-item" href="api/random/gamer?apikey=ApikeyNya">Random Gamer</a>
+            <a class="collapse-item" href="api/random/darkjokes?apikey=ApikeyNya">Random Darkjokes</a>
+            <a class="collapse-item" href="api/random/anime?apikey=ApikeyNya">Random Anime</a>
+            <a class="collapse-item" href="api/random/neko?apikey=ApikeyNya">Random Neko</a>
+            <a class="collapse-item" href="api/random/ahegao?apikey=ApikeyNya">Random Ahegao</a>
+            <a class="collapse-item" href="api/random/akira?apikey=ApikeyNya">Random Akira</a>
+            <a class="collapse-item" href="api/random/akiyama?apikey=ApikeyNya">Random Akiyama</a>
+            <a class="collapse-item" href="api/random/aesthetic?apikey=ApikeyNya">Random Aesthetic</a>
+            <a class="collapse-item" href="api/random/hijaber?apikey=ApikeyNya">Random Hijaber</a>
+            <a class="collapse-item" href="api/random/loli?apikey=ApikeyNya">Random Loli</a>
+            <h6 class="collapse-header">Random Video</h6>
+            <a class="collapse-item" href="api/random/asupan/asupan?apikey=ApikeyNya">Random Asupan</a>
+            <a class="collapse-item" href="api/random/asupan/bocil?apikey=ApikeyNya">Random Bocil</a>
+            <a class="collapse-item" href="api/random/asupan/rikagusriani?apikey=ApikeyNya">Random Rika</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseother" aria-expanded="true"
+          aria-controls="collapseother">
+          <i class="fas fa-folder-open"></i>
+          <span>Others</span>
+        </a>
+        <div id="collapseother" class="collapse" aria-labelledby="headingother" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Others Features</h6>
+            <a class="collapse-item" href="api/gempa?apikey=ApikeyNya">Informasi Gempa</a>
+            <a class="collapse-item" href="api/translate?kata=hi&apikey=ApikeyNya">Translate</a>
+          </div>
+        </div>
+      </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+      <div class="version"><b>Informasi Creator</b></div>
+      </div>
+      <li class="nav-item">
+            <a class="nav-link collapsed" href="api/game">
+            <i class="fas fa-fw fa-info"></i>
+            <span>Game</span>
+            </a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link collapsed" href="https://wa.me/6287705048235">
+            <i class="fab fa-fw fa-whatsapp"></i>
+            <span>WhatsApp</span>
+            </a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link collapsed" href="https://instagram.com/kirbotzx">
+            <i class="fab fa-fw fa-instagram"></i>
+            <span>Instagram</span>
+            </a>
+       </li>
+       <li class="nav-item">
+            <a class="nav-link collapsed" href="https://youtube.com/channel/UC7NslQroUqQYzo2wDFBOUMg">
+            <i class="fab fa-fw fa-youtube"></i>
+            <span>Youtube</span>
+            </a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link collapsed" href="https://github.com/KirBotz">
+            <i class="fab fa-fw fa-github"></i>
+            <span>Github</span>
+            </a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link collapsed" href="https://chat.whatsapp.com/CswK4kvQD1u7SfSmsYfMHZ">
+            <i class="fas fa-biohazard"></i>
+            <span>Group Bot</span>
+            </a>
+      </li>
+      
+      <hr class="sidebar-divider">
+      <div class="version"><b>Rest API's By KirBotz</b></div>
+    </ul>
+    
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+      
+      <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle" src="https://telegra.ph/file/5f9b68bc3d3d5d36595ae.jpg" style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-white small"> KirBotz - APIs </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="https://wa.me/6287705048235">
+                  <i class="fab fa-fw fa-whatsapp"></i>
+                  Whatsapp
+                </a>
+                <a class="dropdown-item" href="https://youtube.com/channel/UC7NslQroUqQYzo2wDFBOUMg">
+                  <i class="fab fa-fw fa-youtube"></i>
+                  Youtube
+                </a>
+                <a class="dropdown-item" href="https://instagram.com/kirbotzx">
+                  <i class="fab fa-fw fa-instagram"></i>
+                  Instagram
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://kirbotz-api.herokuapp.com/">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      
+    <div class="container-fluid" id="container-wrapper">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Rest API's KirBotz</h1>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="./">HOME</a></li>
+              <li class="breadcrumb-item active" aria-current="page">BERANDA</li>
+            </ol>
+          </div>
+<div class="col-xl-3 col-md-6 mb-4">
+<div class="card h-100">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col mr-2">
+<div class="text-xs font-weight-bold text-uppercase mb-1">Fitur Total</div>
+<div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
+<div class="mt-2 mb-0 text-muted text-xs">
+<span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 99.9%</span>
+<span>Work Fitur</span>
+</div>
+</div>
+<div class="col-auto">
+<i class="fas fa-fire fa-2x text-primary"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6 mb-4">
+<div class="card h-100">
+<div class="card-body">
+<div class="row no-gutters align-items-center">
+<div class="col mr-2">
+<div class="text-xs font-weight-bold text-uppercase mb-1">Waktu</div>
+<div class="h5 mb-0 font-weight-bold text-gray-800">
+<div class="jam" id="jam">00:00:00</div>
+</div>
+<div class="mt-2 mb-0 text-muted text-xs">
+</span>
+<span>Waktu Indonesia Barat</span>
+</div>
+</div>
+<div class="col-auto">
+<i class="far fa-clock fa-2x text-primary"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6 mb-4">
+<div class="card">
+<div class="card-body h-100">
+<div class="row no-gutters">
+<div class="col mr-2">
+<div class="m-0 font-weight-bold text-uppercase mb-1">Baterai</div>
+<div class="small font-weight-bold text-gray-600" id="level-battery"></div>
+<br />
+<div class="small font-weight-bold text-gray-600" id="charging-battery"></div>
+</div>
+<div class="col-auto">
+<i class="fas fa-battery-full fa-2x text-primary"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright By
+              <b><a href="https://instagram.com/kirbotzx" target="_blank">KirBotz</a></b>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+  <a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>  
+</body>
+<script>
+
+function getvisitor(){
+              var xhr = new XMLHttpRequest();
+              var url = 'https://api.countapi.xyz/hit/kirbotz-api.herokuapp.com/visits';
+              xhr.onloadend = function(){
+              data = JSON.parse(this.responseText);
+              document.getElementById("visitor").textContent = data.value
+              };
+              xhr.open("GET", url, true);
+              xhr.send();
+}
+
+</script>
+<script type="text/javascript">
+window.setTimeout("waktu()",1000);  
+function waktu() {   
+var tanggal = new Date();  
+setTimeout("waktu()",1000);  
+document.getElementById("jam").innerHTML = tanggal.getHours()+":"+tanggal.getMinutes()+":"+tanggal.getSeconds();
+}
+</script>
+<script>
+var countDownDate = new Date("Jan 01, 2022 00:00:00").getTime();
+var x = setInterval(function() {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("time").innerHTML = days + "Hari  " + hours + "Jam " + minutes + "Menit " + seconds + "Detik ";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("time").innerHTML = "Berakhir";
+}
+}, 1000);
+</script>
+<script>
+const textnya = document.querySelector('.status'); 
+window.onload = function () {
+      function updateBatteryStatus(battery) {
+        document.querySelector('#charging-battery').textContent = battery.charging ?  'Lagi Di Cas ⚡': 'Tidak Di Cas ❌';
+        console.log("Battery charging? "+ (battery.charging ? "Yes" : "No"));
+        document.querySelector("#level-battery").textContent = `Baterai : ${(battery.level * 100).toFixed(0)}`+"%";
+      }
+      navigator.getBattery().then(function(battery){
+        updateBatteryStatus(battery)
+        battery.onchargingchange = function () {
+          updateBatteryStatus(battery)
+        }
+        battery.onlevelchange = function () {
+          updateBatteryStatus(battery)
+        }
+        battery.ondischargingtimechange = function () {
+          updateBatteryStatus(battery)
+        }
+      })
+    }
+
+const player = "O";
+const computer = "X";
+
+let board_full = false;
+let play_board = ["", "", "", "", "", "", "", "", ""];
+
+const board_container = document.querySelector(".play-area");
+
+const winner_statement = document.getElementById("winner");
+
+check_board_complete = () => {
+  let flag = true;
+  play_board.forEach(element => {
+    if (element != player && element != computer) {
+      flag = false;
+    }
+  });
+  board_full = flag;
+};
+
+
+const check_line = (a, b, c) => {
+  return (
+    play_board[a] == play_board[b] &&
+    play_board[b] == play_board[c] &&
+    (play_board[a] == player || play_board[a] == computer)
+  );
+};
+
+const check_match = () => {
+  for (i = 0; i < 9; i += 3) {
+    if (check_line(i, i + 1, i + 2)) {
+      document.querySelector(`#block_${i}`).classList.add("win");
+      document.querySelector(`#block_${i + 1}`).classList.add("win");
+      document.querySelector(`#block_${i + 2}`).classList.add("win");
+      return play_board[i];
+    }
+  }
+  for (i = 0; i < 3; i++) {
+    if (check_line(i, i + 3, i + 6)) {
+      document.querySelector(`#block_${i}`).classList.add("win");
+      document.querySelector(`#block_${i + 3}`).classList.add("win");
+      document.querySelector(`#block_${i + 6}`).classList.add("win");
+      return play_board[i];
+    }
+  }
+  if (check_line(0, 4, 8)) {
+    document.querySelector("#block_0").classList.add("win");
+    document.querySelector("#block_4").classList.add("win");
+    document.querySelector("#block_8").classList.add("win");
+    return play_board[0];
+  }
+  if (check_line(2, 4, 6)) {
+    document.querySelector("#block_2").classList.add("win");
+    document.querySelector("#block_4").classList.add("win");
+    document.querySelector("#block_6").classList.add("win");
+    return play_board[2];
+  }
+  return "";
+};
+
+const check_for_winner = () => {
+  let res = check_match()
+  if (res == player) {
+    winner.innerText = "You Win Apikey: BETAXR";
+    winner.classList.add("playerWin");
+    board_full = true
+  } else if (res == computer) {
+    winner.innerText = "Awokawok Kalah Ama Ai :V";
+    winner.classList.add("computerWin");
+    board_full = true
+  } else if (board_full) {
+    winner.innerText = "Draw!";
+    winner.classList.add("draw");
+  }
+};
+
+
+const render_board = () => {
+  board_container.innerHTML = ""
+  play_board.forEach((e, i) => {
+    board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`
+    if (e == player || e == computer) {
+      document.querySelector(`#block_${i}`).classList.add("occupied");
+    }
+  });
+};
+
+const game_loop = () => {
+  render_board();
+  check_board_complete();
+  check_for_winner();
+}
+
+const addPlayerMove = e => {
+  if (!board_full && play_board[e] == "") {
+    play_board[e] = player;
+    game_loop();
+    addComputerMove();
+  }
+};
+
+const addComputerMove = () => {
+  if (!board_full) {
+    do {
+      selected = Math.floor(Math.random() * 9);
+    } while (play_board[selected] != "");
+    play_board[selected] = computer;
+    game_loop();
+  }
+};
+
+const reset_board = () => {
+  play_board = ["", "", "", "", "", "", "", "", ""];
+  board_full = false;
+  winner.classList.remove("playerWin");
+  winner.classList.remove("computerWin");
+  winner.classList.remove("draw");
+  winner.innerText = "";
+  render_board();
+};
+
+render_board();
+</script>
+</html>
